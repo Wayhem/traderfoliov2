@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import './Modal.css';
 import { Container } from 'unstated';
 import Swal from 'sweetalert2';
@@ -86,7 +87,7 @@ class ModalContainer extends Container {
             }
             this.setState({ activeSuggestion: activeSuggestion - 1 });
             let selection = document.querySelector('.suggestion-active');
-            selection ? selection.scrollIntoView() : selection = selection;
+            selection ? selection.scrollIntoView() : '';
         }
         else if (e.keyCode === 40) {
             if (activeSuggestion - 1 === filteredSuggestions.length) {
@@ -94,7 +95,7 @@ class ModalContainer extends Container {
             }
             this.setState({ activeSuggestion: activeSuggestion + 1 });
             let selection = document.querySelector('.suggestion-active');
-            selection ? selection.scrollIntoView() : selection = selection;
+            selection ? selection.scrollIntoView() : '';
         }
     }
 
@@ -115,7 +116,7 @@ class ModalContainer extends Container {
     search(input, tickers) {
         let results = [];
         for (const elem of tickers) {
-            if (elem.substr(0, input.length).toUpperCase() == input.toUpperCase()) {
+            if (elem.substr(0, input.length).toUpperCase() === input.toUpperCase()) {
                 results.push(elem);
             }
         }
@@ -125,7 +126,7 @@ class ModalContainer extends Container {
     exactSearch(input, tickers) {
         let results = [];
         for (const elem of tickers) {
-            if (elem.toUpperCase() == input.toUpperCase()) {
+            if (elem.toUpperCase() === input.toUpperCase()) {
                 results.push(elem);
             }
         }

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import React, { Component } from "react";
 import Swal from 'sweetalert2';
 import Sidebar from "./components/Sidebar";
@@ -14,7 +15,7 @@ class App extends Component{
       e.preventDefault();
     }
     if (type) {
-      this.state.actionType = type;
+      this.setState({actionType: type});
     }
     document.querySelector('.bg-modal').classList.toggle('hidden');
     document.querySelector('.bg-modal').classList.toggle('visible');
@@ -49,7 +50,7 @@ class App extends Component{
       const amount = this.state.balance.get(key);
       total += (amount/value);
     } 
-    isNaN(total) ? total = 0 : total = total;
+    isNaN(total) ? total = 0 : '';
     document.getElementById('balance').textContent = `$${total.toFixed(2)} / ${(total*this.state.bitDiff).toFixed(8)} BTC`;
   }
 
@@ -95,13 +96,12 @@ class App extends Component{
     fetch(`https://min-api.cryptocompare.com/data/all/coinlist?api_key=${process.env.API_KEY}`)
       .then(res => res.json())
       .then(data => {
-        this.state.allTickers = Object.keys(data.Data);
-        this.state.APIData = data.Data;
+        this.setState({allTickers: Object.keys(data.Data), APIData: data.Data});
       });
     fetch(`https://min-api.cryptocompare.com/data/price?fsym=USD&tsyms=BTC&api_key=${process.env.API_KEY}`)
       .then(res => res.json())
       .then(data => {
-        this.state.bitDiff = data.BTC;
+        this.setState({bitDiff: data.BTC});
       });
   }
 
