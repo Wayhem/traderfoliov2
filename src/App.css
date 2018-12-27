@@ -1,32 +1,167 @@
-.App {
-  text-align: center;
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #33333F;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.7rem;
+    color: #999;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.wrapper {
+    display: flex;
+    align-items: stretch;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.text-simple {
+    color: #fff;
 }
+
+.balance-text {
+    color: #585864;
+}
+#sidebar {
+    min-width: 15.63rem;
+    max-width: 15.63rem;
+    min-height: 100vh;
+    background: #2C2C38;
+    color: #fff;
+    transition: all 0.3s;   
+}
+
+#sidebar.active {
+    margin-left: -15.63rem;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 1.25rem;
+    transform: translateY(-50%);
+}
+
+#sidebar .sidebar-header {
+    padding: 1.25rem;
+    background: #2C2C38;
+}
+
+.card {
+    background-image: linear-gradient(135deg, #51515D , #41414D);
+    border: white;
+}
+
+#sidebar ul.components {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid #41404E;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 0.625rem;
+}
+
+#sidebar ul li a {
+    padding: 0.625rem;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #2C2C38;
+    background: #fff;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #41404E ;
+}
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 1.875rem !important;
+    background: #2C2C38;
+}
+
+.bg-modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.5s, opacity 0.5s linear;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1s linear;
+}
+
+.modal-content {
+    width: 31.25rem;
+    height: 18.75rem;
+    background-color: gray;
+    align-items: center;
+    padding: 1.25rem;
+    text-align: center;
+    position: relative;
+}
+
+.modal-input {
+    width: 50%;
+    display: block;
+    margin: 1rem auto;
+}
+
+.modal-form {
+    width: 100%
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    font-size: 2rem;
+    transform: rotate(45deg);
+    padding-top: 0.3rem;
+    cursor: pointer;
+}
+
+#addButton {
+    position: absolute;
+    right: 27%;
+}
+
+
+@media (max-width: 768px) {
+    #sidebar {
+        display: none;
+    }
+    #sidebarCollapse {
+        display: none;
+    }
+}
+
