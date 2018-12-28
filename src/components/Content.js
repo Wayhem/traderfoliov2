@@ -6,6 +6,7 @@ class Content extends Component{
     componentDidMount() {
         document.querySelector('#sidebarCollapse').addEventListener('click', () => {
             document.querySelector('#sidebar').classList.toggle('active');
+            document.querySelector('#content').classList.toggle('margin-content');
         });
     }
 
@@ -23,7 +24,7 @@ class Content extends Component{
 
     render(){
         return(
-            <div id="content" className="ml-3 container">
+            <div id="content" className="container">
             <nav className="navbar navbar-expand-lg navbar-light pt-4">
                 <div className="container-fluid">
         

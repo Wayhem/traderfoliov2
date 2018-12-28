@@ -38,7 +38,17 @@ a, a:hover, a:focus {
     min-height: 100vh;
     background: #2C2C38;
     color: #fff;
-    transition: all 0.3s;   
+    transition: all 0.3s;
+    position: fixed;   
+}
+
+#content {
+    transition: all 0.3s;
+    margin-left: 16.63rem;
+}
+
+.margin-content {
+    margin-left: 0 !important;
 }
 
 #sidebar.active {
@@ -183,17 +193,16 @@ ul ul a {
     .footer {
         display: flex;
     }
-    /* #navAdd {
-        display: inline-block;
-        bottom: 2rem;
-        right: 15rem;
+    .card {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
     }
-    #navRem{
-        bottom: 2rem;
-        right: 5.8rem;
+    #content {
+        margin-left: 0 !important;
+        padding-bottom: 18%;
     }
-    #navEdit{
-        
-    } */
+    .Input-label {
+        display: none;
+    }
 }
 
