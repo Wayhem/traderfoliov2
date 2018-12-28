@@ -34,7 +34,7 @@ class ModalContainer extends Container {
 
     getInput = (tickers) => {
         const inputs = this.format(this.state.ticker, this.state.amount);
-        if(!(this.exactSearch(inputs.ticker, tickers)[0] === inputs.ticker)){
+        if(!(tickers.filter(tickers => tickers === inputs.ticker))){ 
             inputs.amount = NaN;
             Swal({
                 type: 'error',
@@ -58,7 +58,7 @@ class ModalContainer extends Container {
 
     onChange(e, tickers) {
         const input = e.target.value;
-        const filteredSuggestions = this.search(input, tickers);
+        const filteredSuggestions = tickers.filter(tickers => tickers.startsWith(input.toUpperCase()));
         this.setState({ 
             activeSuggestion: 0,
             filteredSuggestions,
@@ -111,27 +111,6 @@ class ModalContainer extends Container {
             document.querySelector('#input2').focus();
         }
       };
-
-
-    search(input, tickers) {
-        let results = [];
-        for (const elem of tickers) {
-            if (elem.substr(0, input.length).toUpperCase() === input.toUpperCase()) {
-                results.push(elem);
-            }
-        }
-        return results;
-    }
-
-    exactSearch(input, tickers) {
-        let results = [];
-        for (const elem of tickers) {
-            if (elem.toUpperCase() === input.toUpperCase()) {
-                results.push(elem);
-            }
-        }
-        return results;
-    }
 
     renderSuggestions(api) {
         const {

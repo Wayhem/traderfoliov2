@@ -39,6 +39,11 @@ class Content extends Component{
                 <h1 id="balance" className="text-simple">$0</h1>
                 {this.renderCards()}
             </div>
+            <div className="footer">
+                <button onClick={e => this.props.handleModal(e, 1)} id="navAdd" className="btn btn-outline-success badge-pill navBtn mx-2">Add Funds</button>
+                <button onClick={e => this.props.handleModal(e, 2)} id="navRem" className="btn btn-outline-danger badge-pill navBtn mx-2">Remove Funds</button>
+                <button onClick={e => this.props.handleModal(e, 3)} id="navEdit" className="btn btn-outline-warning badge-pill navBtn mx-2">Edit</button>
+            </div>
         </div>    
         );
   }

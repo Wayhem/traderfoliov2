@@ -109,7 +109,7 @@ class App extends Component{
     return(
       <div className="wrapper">
         <Sidebar handleModal={this.handleModal} />
-        <Content balance={this.state.balance} api={this.state.APIData} />
+        <Content balance={this.state.balance} api={this.state.APIData} handleModal={this.handleModal} />
         <Provider>
           <Subscribe to={[ModalContainer]}>
             {modal => (

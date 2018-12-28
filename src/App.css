@@ -155,6 +155,23 @@ ul ul a {
     right: 27%;
 }
 
+.navBtn {
+    position: relative;
+    text-align: center;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10%;
+    background-color: #2C2C38;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
 
 @media (max-width: 768px) {
     #sidebar {
@@ -163,5 +180,20 @@ ul ul a {
     #sidebarCollapse {
         display: none;
     }
+    .footer {
+        display: flex;
+    }
+    /* #navAdd {
+        display: inline-block;
+        bottom: 2rem;
+        right: 15rem;
+    }
+    #navRem{
+        bottom: 2rem;
+        right: 5.8rem;
+    }
+    #navEdit{
+        
+    } */
 }
 
