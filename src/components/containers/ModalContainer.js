@@ -34,7 +34,7 @@ class ModalContainer extends Container {
 
     getInput = (tickers) => {
         const inputs = this.format(this.state.ticker, this.state.amount);
-        if(!(tickers.filter(tickers => tickers === inputs.ticker))){ 
+        if(!(tickers.filter(tickers => tickers === inputs.ticker)[0])){ 
             inputs.amount = NaN;
             Swal({
                 type: 'error',
