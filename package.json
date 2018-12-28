@@ -2,7 +2,7 @@
   "name": "traderfolio-deployment",
   "version": "0.1.0",
   "private": true,
-  "engines":{
+  "engines": {
     "node": "10.14.2",
     "npm": "6.4.1"
   },
@@ -27,5 +27,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "assert": "^1.4.1"
+  }
 }
