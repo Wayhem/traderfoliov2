@@ -38,7 +38,9 @@ class Content extends Component{
             <div className="container-fluid pt-2">
                 <h5 className="balance-text">Balance</h5>
                 <h1 id="balance" className="text-simple">$0</h1>
-                {this.renderCards()}
+                <div className="d-flex flex-row justify-content-between flex-wrap">
+                    {this.renderCards()}
+                </div>
             </div>
             <div className="footer">
                 <button onClick={e => this.props.handleModal(e, 1)} id="navAdd" className="btn btn-outline-success badge-pill navBtn mx-2">Add Funds</button>

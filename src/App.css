@@ -75,6 +75,7 @@ a[data-toggle="collapse"] {
 .card {
     background-image: linear-gradient(135deg, #51515D , #41414D);
     border: white;
+    position: relative;
 }
 
 #sidebar ul.components {

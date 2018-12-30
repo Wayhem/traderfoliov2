@@ -25,10 +25,10 @@ class Sidebar extends Component{
                         </ul>
                     </li>
                     <li>
-                        <a href="https://jvilladev.com">Portfolio</a>
+                        <a href="https://jvilladev.com" target="_blank" rel="noopener noreferrer">Portfolio</a>
                     </li>
                     <li>
-                        <a href="https://jvilladev.com/#contact">Contact</a>
+                        <a href="https://jvilladev.com/#contact" target="_blank" rel="noopener noreferrer">Contact</a>
                     </li>
                 </ul>
             </nav>    
