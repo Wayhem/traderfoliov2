@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis');
 
+::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+
 :root {
   /* generic */
   --gutterSm: 0.4rem;
@@ -160,10 +165,11 @@
   
   .suggestions {
     border: 1px solid #999;
+    border-radius: 5%;
     border-top-width: 0;
     list-style: none;
     margin-top: 0;
-    max-height: 143px;
+    max-height: 15rem;
     overflow-y: auto;
     padding-left: 0;
     width: 70%;
@@ -182,12 +188,12 @@
   
   .suggestion-active,
   .suggestions li:hover {
-    background-color: #5264AE;
+    background-color: #007bff;
     color: #fff;
     cursor: pointer;
     font-weight: 700;
   }
   
   .suggestions li:not(:last-of-type) {
-    border-bottom: 1px solid #999;
+    border-bottom: none;
   }
