@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Dosis');
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
 ::-webkit-scrollbar {
   width: 0px;  /* remove scrollbar space */
@@ -15,7 +15,7 @@
   --colorPrimary400: #706c77;
   --colorPrimary600: #47434e;
   --colorPrimary800: #35333a;
-  --fontFamily: "Dosis", sans-serif;
+  --fontFamily: "Poppins", sans-serif;
   --fontSizeSm: 1.2rem;
   --fontSizeMd: 1.6rem;
   --fontSizeLg: 2.1rem;
