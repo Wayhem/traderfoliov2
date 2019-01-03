@@ -123,9 +123,13 @@ class App extends Component{
                           id="input" 
                           className="modal-input Input-text" 
                           type="text" 
-                          placeholder="BTC, ETH, or.." 
-                          value={modal.state.ticker}
-                          onChange={e => modal.onChange(e, this.state.allTickers)}
+                          placeholder="BTC, ETH, or.."
+                          value={modal.state.value} 
+                          onChange={e => {
+                            modal.onChange(e.target.value, this.state.allTickers)
+                            modal.resetSuggestions()
+                            modal.handleInput(e.target.value)
+                          }}
                           onKeyDown={e => modal.onKeyDown(e)}
                       />
                       <label htmlFor="input" className="Input-label">Ticker</label>

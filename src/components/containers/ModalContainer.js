@@ -3,12 +3,14 @@ import './Modal.css';
 import { Container } from 'unstated';
 import Swal from 'sweetalert2';
 import React from 'react';
+import { debounce } from 'lodash';
 
 class ModalContainer extends Container {
 
     state = {
         ticker: '',
         amount: '',
+        value: '',
         activeSuggestion: 0,
         filteredSuggestions: [],
         showSuggestions: false
@@ -43,21 +45,17 @@ class ModalContainer extends Container {
             })
         }
         if (this.state.filteredSuggestions.length){
-            this.setState({
-            activeSuggestion: 0,
-            filteredSuggestions: [],
-            showSuggestions: false
-            });
+            this.resetSuggestions()
         }
         return inputs;
     }
 
     cleanState = () => {
-        this.setState({ticker: '', amount: ''})
+        this.setState({ticker: '', amount: '', value: ''})
     }
 
-    onChange(e, tickers) {
-        const input = e.target.value;
+    onChange = debounce((text, tickers) => {
+        const input = text;
         const filteredSuggestions = tickers.filter(tickers => tickers.startsWith(input.toUpperCase()));
         this.setState({ 
             activeSuggestion: 0,
@@ -65,6 +63,10 @@ class ModalContainer extends Container {
             showSuggestions: true,
             ticker: input
         })
+    }, 500);
+
+    handleInput(value) {
+        this.setState({value});
     }
 
     onKeyDown = (e) => {
@@ -73,11 +75,10 @@ class ModalContainer extends Container {
             e.preventDefault();
             if (this.state.filteredSuggestions.length){
                 this.setState({
-                    activeSuggestion: 0,
-                    showSuggestions: false,
-                    filteredSuggestions: [],
-                    ticker: filteredSuggestions[activeSuggestion].split(' ')[0]
+                    ticker: filteredSuggestions[activeSuggestion].split(' ')[0],
+                    value: filteredSuggestions[activeSuggestion].split(' ')[0]
                 });
+                this.resetSuggestions();
                 document.querySelector('#input2').focus();
             }
         }
@@ -102,15 +103,22 @@ class ModalContainer extends Container {
     onClick = e => {
         e.preventDefault();
         if (this.state.filteredSuggestions.length){
+            this.resetSuggestions();
             this.setState({
-            activeSuggestion: 0,
-            filteredSuggestions: [],
-            showSuggestions: false,
-            ticker: e.currentTarget.innerText.split(' ')[0]
+            ticker: e.currentTarget.innerText.split(' ')[0],
+            value: e.currentTarget.innerText.split(' ')[0]
             });
             document.querySelector('#input2').focus();
         }
       };
+    
+    resetSuggestions() {
+        this.setState({
+            activeSuggestion: 0,
+            showSuggestions: false,
+            filteredSuggestions: []
+        })
+    }
 
     renderSuggestions(api) {
         const {
