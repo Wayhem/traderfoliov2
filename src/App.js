@@ -41,6 +41,15 @@ class App extends Component{
       .then(res => res.json())
       .then(data => {
         this.showBalance(data);
+      })
+      .catch(err => {
+        Swal({
+          type: 'error',
+          title: 'Oops...',
+          text: `You might want to check your connection!`
+        })
+        document.querySelector('#balance').style.display = 'none';
+        document.querySelector('.balance-text').style.display = 'none';
       });
   }
   
@@ -97,11 +106,27 @@ class App extends Component{
       .then(res => res.json())
       .then(data => {
         this.setState({allTickers: Object.keys(data.Data), APIData: data.Data});
+      })
+      .catch(err => {
+        Swal({
+          type: 'error',
+          title: 'Oops...',
+          text: `You might want to check your connection!`
+        })
       });
     fetch(`https://min-api.cryptocompare.com/data/price?fsym=USD&tsyms=BTC&api_key=${process.env.API_KEY}`)
       .then(res => res.json())
       .then(data => {
         this.setState({bitDiff: data.BTC});
+      })
+      .catch(err => {
+        Swal({
+          type: 'error',
+          title: 'Oops...',
+          text: `You might want to check your connection!`
+        })
+        document.querySelector('#balance').style.display = 'none';        document.querySelector('#balance').style.display = 'none';
+        document.querySelector('.balance-text').style.display = 'none';
       });
   }
 
